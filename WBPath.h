@@ -1,10 +1,10 @@
 /*
 ** WbPath.h - clone the Workbench process's command path.
-** Copyright © 1994 by Ralph Babel. Permission granted to
-** distribute this file in conjunction with »WbPath.o« and
-** »PathTest.c« in unmodified form and to use the associated
-** object module »WbPath.o«, provided that this file,
-** »WbPath.o«, and »PathTest.c« accompany the resulting
+** Copyright ï¿½ 1994 by Ralph Babel. Permission granted to
+** distribute this file in conjunction with ï¿½WbPath.oï¿½ and
+** ï¿½PathTest.cï¿½ in unmodified form and to use the associated
+** object module ï¿½WbPath.oï¿½, provided that this file,
+** ï¿½WbPath.oï¿½, and ï¿½PathTest.cï¿½ accompany the resulting
 ** program. All other rights reserved.
 */
 
@@ -31,13 +31,13 @@
 
 /*
 
-When a program is launched via the »Execute Command ...«
+When a program is launched via the ï¿½Execute Command ...ï¿½
 menu item provided by Workbench, Workbench passes the CLI
 command path that was active at the time LoadWb was invoked
 to the application. Regular Workbench processes, however, do
 not operate in a CLI environment, so they cannot inherit the
 Workbench path, and new shells spawned by such processes via
-SystemTagList() start with an »empty« path (i.e. just »C:«
+SystemTagList() start with an ï¿½emptyï¿½ path (i.e. just ï¿½C:ï¿½
 and the current directory).
 
 The function CloneWorkbenchPath() creates a local copy of
@@ -56,7 +56,7 @@ after all), and all possible results may safely be used with
 NP_Path or passed to FreeWorkbenchPath(). The result may
 also be zero if the Workbench path could not be obtained for
 any reason, and the path may be truncated if an error
-occurred or if the path was updated via »LoadWb NEWPATH«
+occurred or if the path was updated via ï¿½LoadWb NEWPATHï¿½
 while it was being cloned.
 
 These functions may safely be called under all versions of
@@ -74,7 +74,7 @@ Further information can be found in the Amiga Guru Book on
 pages 400 and 571 f. The Amiga Guru Book is available from:
 
 Hirsch & Wolf OHG
-Mittelstraße 33
+Mittelstraï¿½e 33
 D-56564 Neuwied
 Germany
 Voice: +49 (2631) 8399-0
@@ -90,7 +90,7 @@ Fax:   +1 (217) 398 4238
 E-Mail: <periscope@cei.com>
 
 Someware
-27 rue Gabriel Péri
+27 rue Gabriel Pï¿½ri
 59186 Anor
 France
 Voice: +33 27596000
@@ -99,6 +99,10 @@ Fax:   +33 27595206
 */
 
 /*** macros ***/
+
+#ifdef __AROS__
+#define __stdargs
+#endif
 
 #define CloneWorkbenchPath(sm) cloneWorkbenchPath(SysBase, DOSBase, sm)
 #define FreeWorkbenchPath(path) freeWorkbenchPath(SysBase, DOSBase, path)

@@ -5,7 +5,7 @@
 **
 ** RO -- MUI-Based FileManager, Shareware
 **
-** Copyright © 1994-2018 by Oliver Rummeyer
+** Copyright ï¿½ 1994-2018 by Oliver Rummeyer
 **
 */
 
@@ -24,21 +24,18 @@ int main ( int argc, char *argv[] )
 	global_ARGC = argc;
 	global_ARGV = argv;
 
-	CheckKey();
-
-	if (global_Special)
-		global_KeyFile = TRUE;
-
 	Init();
 
 	strcpy( global_Path[Left_Side], "" );
 	strcpy( global_Path[Right_Side], "" );
 
+#ifndef __AROS__
 	if ( argc == 0 )
 	{
 		argc = _WBArgc;
 		argv = _WBArgv;
 	}
+#endif
 
 	lock = Lock( "PROGDIR:", ACCESS_READ );
 	if ( lock )
@@ -342,8 +339,6 @@ int main ( int argc, char *argv[] )
 		if ( signal && !global_QuitProgram ) Wait(signal);
 		if ( Once == 1 )
 		{
-			if ( !global_KeyFile )
-				AboutRequester();
 			Once = 2;
 		}
 		if ( Once == 3 )
@@ -388,9 +383,6 @@ int main ( int argc, char *argv[] )
 			global_ConfigChange = TRUE;
 		}
 	}
-
-	if ( !global_KeyFile )
-		AboutRequester();
 
 	set( wi_Main, MUIA_Window_Open, FALSE );
 

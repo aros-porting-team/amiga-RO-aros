@@ -468,7 +468,7 @@ int DoFunction( int Operation, int side, char * Argument )
 								{
 									datetime -> dat_Stamp   = fib -> fib_Date;
 									datetime -> dat_Format  = FORMAT_DOS;
-									datetime -> dat_Flags   = NULL;
+									datetime -> dat_Flags   = 0;
 									datetime -> dat_StrDay  = NULL;
 									datetime -> dat_StrDate = Date_String;
 									datetime -> dat_StrTime = Time_String;
@@ -496,7 +496,7 @@ int DoFunction( int Operation, int side, char * Argument )
 											if ( datetime )
 											{
 												datetime -> dat_Format  = FORMAT_DOS;
-												datetime -> dat_Flags   = NULL;
+												datetime -> dat_Flags   = 0;
 												datetime -> dat_StrDay  = NULL;
 												datetime -> dat_StrDate = Date_String;
 												datetime -> dat_StrTime = Time_String;
@@ -538,7 +538,7 @@ int DoFunction( int Operation, int side, char * Argument )
 										{
 											datetime -> dat_Stamp   = fib -> fib_Date;
 											datetime -> dat_Format  = FORMAT_DOS;
-											datetime -> dat_Flags   = NULL;
+											datetime -> dat_Flags   = 0;
 											datetime -> dat_StrDay  = NULL;
 											datetime -> dat_StrDate = Date_String;
 											datetime -> dat_StrTime = Time_String;

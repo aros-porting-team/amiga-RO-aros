@@ -1021,6 +1021,7 @@ int FileAction ( char * File_String )
 
 				if ( Num == -4 )
 				{
+#ifdef HAVE_XPK
 					if(XpkBase=OpenLibrary(XPKNAME,0))
 					{
 						strcpy(newname,cfg_TempDir);
@@ -1038,6 +1039,9 @@ int FileAction ( char * File_String )
 						CloseLibrary(XpkBase);
 					}
 					else ErrorNum = -8;
+#else
+					ErrorNum = -8;
+#endif
 				}
 
 				if ( Num == -3 )

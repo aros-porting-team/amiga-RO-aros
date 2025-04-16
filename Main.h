@@ -4,9 +4,6 @@
 **
 */
 
-BOOL global_Special = FALSE;
-
-extern BOOL global_KeyFile;
 extern BOOL global_DirLoaded[2];
 extern BOOL global_AskOnce;
 extern BOOL cfg_CopyDate;
@@ -54,7 +51,6 @@ extern char cfg_RightLoad[81];
 extern char Status_String[1024];
 
 extern void Init ( void );
-extern void CheckKey ( void );
 extern void Fail ( void );
 extern void LoadVolume ( int side );
 extern void LoadBuffer ( int side );

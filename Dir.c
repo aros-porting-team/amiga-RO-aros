@@ -58,8 +58,6 @@ int LoadDirectory ( char * Path_String, int side )
 			else
 				global_Reload = FALSE;
 
-			if ( !global_KeyFile )
-				global_Actions++;
 			Examine( lock, fib );
 			if ( fib -> fib_DirEntryType > 0 )
 			{
@@ -296,32 +294,24 @@ void UpdateStatusText ( int side )
 			sprintf( Text_String, GetCatStr( 42, "%s  %ld%% full, %s%s free, %s%s in use" ), Device_String, Percent, BytesFree_String, Unit_Free, BytesUsed_String, Unit_Used );
 			set( bt_StatusText[side], MUIA_Text_Contents, Text_String );
 			if ( !global_DirLoaded[side] ) global_DirLoaded[side] = TRUE;
-			if ( !global_KeyFile )
+			SleepWindow( TRUE );
+			current = malloc( sizeof ( struct DateStamp ) );
+			if ( current )
 			{
-				if ( global_Actions > 29 )
+				DateStamp( current );
+				i = current->ds_Tick;
+				j = i;
+				while ( ( j >= i && ( j - i < 256 ) ) && AboutRequester() )
 				{
-					SleepWindow( TRUE );
-					current = malloc( sizeof ( struct DateStamp ) );
-					if ( current )
-					{
-						DateStamp( current );
-						i = current->ds_Tick;
-						j = i;
-						while ( ( j >= i && ( j - i < 256 ) ) && AboutRequester() )
-						{
-							k++;
-							DateStamp( current );
-							j = current->ds_Tick;
-						}
-						if ( global_Actions != 0 || k > 25 ) Fail();
-						free( current );
-					}
-					SleepWindow( FALSE );
+					k++;
+					DateStamp( current );
+					j = current->ds_Tick;
 				}
+				if ( global_Actions != 0 || k > 25 ) Fail();
+				free( current );
 			}
-			else
-				if ( global_Actions != 0 )
-					Fail();
+			SleepWindow( FALSE );
+
 			free( pid );
 		}
 		UnLock( lock );

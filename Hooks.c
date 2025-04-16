@@ -7,7 +7,8 @@
 **
 */
 
-SAVEDS ASM LONG AppMsgFunc( REG(a2) APTR obj, REG(a1) struct AppMessage **x )
+/* SAVEDS ASM LONG AppMsgFunc( REG(a2) APTR obj, REG(a1) struct AppMessage **x ) */
+HOOKPROTONH(AppMsgFunc, LONG, APTR obj, struct AppMessage **x)
 {
 	struct WBArg *ap;
 	struct AppMessage *amsg = *x;
@@ -139,7 +140,8 @@ SAVEDS ASM LONG AppMsgFunc( REG(a2) APTR obj, REG(a1) struct AppMessage **x )
 **
 */
 
-SAVEDS ASM LONG ButtonFunc( REG(a2) APTR obj )
+/* SAVEDS ASM LONG ButtonFunc( REG(a2) APTR obj ) */
+HOOKPROTONHNP(ButtonFunc, LONG, APTR obj)
 {
 	int i;
 
@@ -160,7 +162,8 @@ SAVEDS ASM LONG ButtonFunc( REG(a2) APTR obj )
 **
 */
 
-SAVEDS ASM LONG DriveFunc( REG(a2) APTR obj )
+/* SAVEDS ASM LONG DriveFunc( REG(a2) APTR obj ) */
+HOOKPROTONHNP(DriveFunc, LONG, APTR obj)
 {
 	int i, side;
 
@@ -187,7 +190,8 @@ SAVEDS ASM LONG DriveFunc( REG(a2) APTR obj )
 **
 */
 
-SAVEDS ASM LONG ActionRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG ActionRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(ActionRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[256];
 
@@ -206,7 +210,8 @@ SAVEDS ASM LONG ActionRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG ActivateRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG ActivateRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(ActivateRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[10];
 	int side;
@@ -241,7 +246,8 @@ SAVEDS ASM LONG ActivateRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG LoadRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG LoadRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(LoadRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[256];
 	int side;
@@ -269,7 +275,8 @@ SAVEDS ASM LONG LoadRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG PathRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG PathRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(PathRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[256];
 	int side;
@@ -296,7 +303,8 @@ SAVEDS ASM LONG PathRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG RefreshRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG RefreshRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(RefreshRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr;
 	int side;
@@ -317,7 +325,8 @@ SAVEDS ASM LONG RefreshRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG MessageRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG MessageRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(MessageRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr;
 
@@ -336,7 +345,8 @@ SAVEDS ASM LONG MessageRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG ChoiceRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG ChoiceRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(ChoiceRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[2][256];
 	int rc;
@@ -362,7 +372,8 @@ SAVEDS ASM LONG ChoiceRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG StringRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG StringRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(StringRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[256];
 	BOOL Skip, Cancel;
@@ -384,7 +395,8 @@ SAVEDS ASM LONG StringRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG NumEntriesRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG NumEntriesRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(NumEntriesRexxFunc, LONG, IPTR *arg)
 {
 	int side, i, j=0;
 	ULONG Entries_ULONG, Selection_State, Type_ULONG = 0;
@@ -431,7 +443,8 @@ SAVEDS ASM LONG NumEntriesRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG GetEntryRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG GetEntryRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(GetEntryRexxFunc, LONG, IPTR *arg)
 {
 	int side;
 	char String[512], *cptr, Type_String[10];
@@ -484,7 +497,8 @@ SAVEDS ASM LONG GetEntryRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG CommandRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG CommandRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(CommandRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[2][512];
 	int ErrorNum = 0;
@@ -514,7 +528,8 @@ SAVEDS ASM LONG CommandRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG FunctionRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG FunctionRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(FunctionRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr;
 
@@ -534,7 +549,8 @@ SAVEDS ASM LONG FunctionRexxFunc( REG(a1) ULONG *arg )
 **
 */
 
-SAVEDS ASM LONG ChangeRexxFunc( REG(a1) ULONG *arg )
+/* SAVEDS ASM LONG ChangeRexxFunc( REG(a1) ULONG *arg ) */
+HOOKPROTONHNO(ChangeRexxFunc, LONG, IPTR *arg)
 {
 	char *cptr, String[256];
 	int side;

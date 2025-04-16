@@ -4,22 +4,22 @@
 **
 */
 
-extern SAVEDS ASM LONG AppMsgFunc( REG(a2) APTR obj, REG(a1) struct AppMessage **x );
-extern SAVEDS ASM LONG ButtonFunc( REG(a2) APTR obj );
-extern SAVEDS ASM LONG DriveFunc( REG(a2) APTR obj );
-extern SAVEDS ASM LONG ActionRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG ActivateRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG LoadRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG PathRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG RefreshRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG MessageRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG ChoiceRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG StringRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG NumEntriesRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG GetEntryRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG CommandRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG FunctionRexxFunc( REG(a1) ULONG *arg );
-extern SAVEDS ASM LONG ChangeRexxFunc( REG(a1) ULONG *arg );
+HOOKPROTONH(AppMsgFunc, LONG, APTR obj, struct AppMessage **x );
+HOOKPROTONHNP(ButtonFunc, LONG, APTR obj );
+HOOKPROTONHNP(DriveFunc, LONG, APTR obj );
+HOOKPROTONHNO(ActionRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(ActivateRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(LoadRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(PathRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(RefreshRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(MessageRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(ChoiceRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(StringRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(NumEntriesRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(GetEntryRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(CommandRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(FunctionRexxFunc, LONG, ULONG *arg );
+HOOKPROTONHNO(ChangeRexxFunc, LONG, ULONG *arg );
 
 extern char * GetCatStr( int num, char *defstring );
 
@@ -113,19 +113,19 @@ struct NewMenu MenuData[] =
 	{ NM_END ,  NULL           , 0 ,0,0,(APTR)0             }
 };
 
-static const struct Hook ActionRexxHook = { { NULL,NULL },(VOID *)ActionRexxFunc,NULL,NULL };
-static const struct Hook ActivateRexxHook = { { NULL,NULL },(VOID *)ActivateRexxFunc,NULL,NULL };
-static const struct Hook LoadRexxHook = { { NULL,NULL },(VOID *)LoadRexxFunc,NULL,NULL };
-static const struct Hook PathRexxHook = { { NULL,NULL },(VOID *)PathRexxFunc,NULL,NULL };
-static const struct Hook RefreshRexxHook = { { NULL,NULL },(VOID *)RefreshRexxFunc,NULL,NULL };
-static const struct Hook MessageRexxHook = { { NULL,NULL },(VOID *)MessageRexxFunc,NULL,NULL };
-static const struct Hook ChoiceRexxHook = { { NULL,NULL },(VOID *)ChoiceRexxFunc,NULL,NULL };
-static const struct Hook StringRexxHook = { { NULL,NULL },(VOID *)StringRexxFunc,NULL,NULL };
-static const struct Hook NumEntriesRexxHook = { { NULL,NULL },(VOID *)NumEntriesRexxFunc,NULL,NULL };
-static const struct Hook GetEntryRexxHook = { { NULL,NULL },(VOID *)GetEntryRexxFunc,NULL,NULL };
-static const struct Hook CommandRexxHook = { { NULL,NULL },(VOID *)CommandRexxFunc,NULL,NULL };
-static const struct Hook FunctionRexxHook = { { NULL,NULL },(VOID *)FunctionRexxFunc,NULL,NULL };
-static const struct Hook ChangeRexxHook = { { NULL,NULL },(VOID *)ChangeRexxFunc,NULL,NULL };
+MakeStaticHook(ActionRexxHook, ActionRexxFunc);
+MakeStaticHook(ActivateRexxHook, ActivateRexxFunc);
+MakeStaticHook(LoadRexxHook, LoadRexxFunc);
+MakeStaticHook(PathRexxHook, PathRexxFunc);
+MakeStaticHook(RefreshRexxHook, RefreshRexxFunc);
+MakeStaticHook(MessageRexxHook, MessageRexxFunc);
+MakeStaticHook(ChoiceRexxHook, ChoiceRexxFunc);
+MakeStaticHook(StringRexxHook, StringRexxFunc);
+MakeStaticHook(NumEntriesRexxHook, NumEntriesRexxFunc);
+MakeStaticHook(GetEntryRexxHook, GetEntryRexxFunc);
+MakeStaticHook(CommandRexxHook, CommandRexxFunc);
+MakeStaticHook(FunctionRexxHook, FunctionRexxFunc);
+MakeStaticHook(ChangeRexxHook, ChangeRexxFunc);
 
 static struct MUI_Command ARexxCommands[] =
 {

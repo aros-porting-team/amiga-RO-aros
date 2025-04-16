@@ -5,7 +5,7 @@
 **
 ** ROPrefs -- MUI-Based FileManager Prefs, Shareware
 **
-** Copyright © 1994-1998 by Oliver Rummeyer
+** Copyright ï¿½ 1994-1998 by Oliver Rummeyer
 **
 */
 
@@ -17,21 +17,13 @@ int main ( int argc, char *argv[] )
 	struct FileRequester * req;
 	char * str;
 
-	CheckKey();
-
-	if (global_Special)
-		global_KeyFile = TRUE;
-
 	Init();
 
 	set( wi_Main, MUIA_Window_Open, TRUE );
 
-	if ( !global_KeyFile )
-	{
-		AboutRequester();
-		set( bt_Save, MUIA_Disabled, TRUE );
-		DoMethod( wi_Main, MUIM_Window_SetMenuState, ID_MenuSaveAs, FALSE );
-	}
+	AboutRequester();
+	set( bt_Save, MUIA_Disabled, TRUE );
+	DoMethod( wi_Main, MUIM_Window_SetMenuState, ID_MenuSaveAs, FALSE );
 
 	DefaultConfig();
 	LoadConfig("ENV:RO/RO.prefs");
@@ -414,9 +406,6 @@ int main ( int argc, char *argv[] )
 
 		if ( signal && !global_QuitProgram ) Wait(signal);
 	}
-
-	if ( !global_KeyFile )
-		AboutRequester();
 
 	set( wi_Main, MUIA_Window_Open, FALSE );
 

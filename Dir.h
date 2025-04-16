@@ -20,7 +20,6 @@ extern LONG global_Actions;
 extern LONG global_NumBuffers;
 
 extern BOOL global_DirLoaded[2];
-extern BOOL global_KeyFile;
 extern BOOL cfg_PathExpand;
 extern BOOL cfg_CheckDupes;
 

@@ -38,7 +38,9 @@ extern int RecogArchive ( char * FileName_String );
 extern int global_ARGC;
 extern char **global_ARGV;
 
+#ifdef HAVE_XPK
 struct Library *XpkBase;
+#endif
 
 extern void SleepWindow ( BOOL Sleep_BOOL );
 extern void Expand ( int side );

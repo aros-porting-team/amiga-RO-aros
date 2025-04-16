@@ -10,7 +10,6 @@ extern APTR app_RumorOpusPrefs;
 extern APTR wi_Main;
 
 extern BOOL cfg_CheckFit;
-extern BOOL global_KeyFile;
 
 BOOL global_Cancel=FALSE;
 BOOL global_QuitProgram=FALSE;
@@ -54,8 +53,6 @@ extern APTR st_FormatLeft;
 extern APTR st_FormatRight;
 extern APTR pp_CommandA;
 extern APTR pp_CommandB;
-
-extern BOOL global_KeyFile;
 
 extern __far BOOL cfg_RecogType[100];
 extern __far char cfg_RecogString[100][41];

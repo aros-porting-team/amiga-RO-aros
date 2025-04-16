@@ -60,7 +60,7 @@ char * ClockString( void )
 		{
 			datetime -> dat_Stamp   = *datestamp;
 			datetime -> dat_Format  = FORMAT_DOS;
-			datetime -> dat_Flags   = NULL;
+			datetime -> dat_Flags   = 0;
 			datetime -> dat_StrDay  = Day_String;
 			datetime -> dat_StrDate = Date_String;
 			datetime -> dat_StrTime = Time_String;
@@ -126,7 +126,7 @@ char * ClockString( void )
 LONG ClockTask ( void )
 {
 	int i;
-	char String[128];
+	char string[128];
 
 	while ( !global_QuitClock )
 	{
@@ -134,8 +134,8 @@ LONG ClockTask ( void )
 
 		if ( ( ( global_SleepClock == 0 ) && !global_QuitClock ) && ( cfg_ShowClock || cfg_ShowDate || cfg_ShowDay || cfg_ShowMem ) )
 		{
-			strcpy( String, ClockString() );
-			DoMethod( app_RumorOpus, MUIM_Application_PushMethod, bt_StatusBar, 3, MUIM_Set, MUIA_Text_Contents, String );
+			strcpy( string, ClockString() );
+			DoMethod( app_RumorOpus, MUIM_Application_PushMethod, bt_StatusBar, 3, MUIM_Set, MUIA_Text_Contents, string );
 		}
 
 		global_UpdateAllowed = TRUE;

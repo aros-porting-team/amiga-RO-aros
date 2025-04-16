@@ -78,7 +78,7 @@ ULONG MyDirList_DragDrop(struct IClass *cl,Object *obj,struct MUIP_DragDrop *msg
 	}
 }
 
-SAVEDS ASM ULONG MyDirList_Dispatcher(REG(a0) struct IClass *cl,REG(a2) Object *obj,REG(a1) Msg msg)
+DISPATCHER(MyDirList_Dispatcher)
 {
 	switch (msg->MethodID)
 	{
@@ -252,7 +252,7 @@ BOOL StartApplication ( void )
 		MUIA_Application_HelpFile, "RO.guide",
 		MUIA_Application_Title         , "RO",
 		MUIA_Application_Version       , VERSION,
-		MUIA_Application_Copyright     , "Copyright © 1994-2018 by Oliver Rummeyer",
+		MUIA_Application_Copyright     , "Copyright ï¿½ 1994-2018 by Oliver Rummeyer",
 		MUIA_Application_Author        , "Oliver Rummeyer",
 		MUIA_Application_Description   , GetCatStr( 0, "MUI-Based FileManager" ),
 		MUIA_Application_Base          , "RO",
@@ -261,7 +261,7 @@ BOOL StartApplication ( void )
 
 		SubWindow,
 			wi_Main = WindowObject,
-			MUIA_Window_Title, "RO 1.28 Beta (19.06.18) -- Copyright © 1994-2018 by Oliver Rummeyer",
+			MUIA_Window_Title, "RO 1.28 Beta (19.06.18) -- Copyright ï¿½ 1994-2018 by Oliver Rummeyer",
 			MUIA_Window_ID, 1,
 			MUIA_Window_Menustrip, Menu = MUI_MakeObject(MUIO_MenustripNM,MenuData,0),
 			MUIA_Window_NeedsMouseObject, TRUE,
@@ -621,9 +621,9 @@ void Methods ( void )
 {
 	int i;
 
-	static const struct Hook AppMsgHook = { { NULL,NULL },(VOID *)AppMsgFunc,NULL,NULL };
-	static const struct Hook ButtonHook = { { NULL,NULL },(VOID *)ButtonFunc,NULL,NULL };
-	static const struct Hook DriveHook = { { NULL,NULL },(VOID *)DriveFunc,NULL,NULL };
+	MakeStaticHook(AppMsgHook, AppMsgFunc);
+	MakeStaticHook(ButtonHook, ButtonFunc);
+	MakeStaticHook(DriveHook, DriveFunc);
 
 	/*** Listview Notifications ***/
 

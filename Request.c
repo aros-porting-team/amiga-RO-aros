@@ -116,50 +116,13 @@ BOOL AboutRequester ( void )
 {
 	char About_String[512];
 
-	if ( global_Actions > 29 )
-		global_Actions = 0;
+	strcpy( About_String, "" );
+	strcat( About_String, "\33c\33uRO 1.28 Beta (19.06.18)\n\33n" );
+	strcat( About_String, "Copyright ï¿½ 1994-2018 by Oliver Rummeyer\n\n" );
+	strcat( About_String, "\33b- Free Edition -\33n\n\n" );
+	strcat( About_String, GetCatStr( 4, "This is a MUI-Application\n" ) );
+	strcat( About_String, "MUI is copyrighted by Stefan Stuntz" );
 
-	if ( !global_Special )
-	{
-		if ( !global_KeyFile )
-		{
-			strcpy( About_String, "" );
-			strcat( About_String, "\33c\33uRO 1.28 Beta (19.06.18)\n\33n" );
-			strcat( About_String, "Copyright © 1994-2018 by Oliver Rummeyer\n\n" );
-			strcat( About_String, "\33b- Unregistered Release -\33n\n\n" );
-			strcat( About_String, "To register, send $20.- or DM 30.- to\n\n" );
-			strcat( About_String, "Oliver Rummeyer\n" );
-			strcat( About_String, "Kreuzäckerstr. 31\n" );
-			strcat( About_String, "70794 Filderstadt\n" );
-			strcat( About_String, "Germany/Europe\n\n" );
-			strcat( About_String, "e-mail: oliver@rummeyer.de\n\n" );
-			strcat( About_String, GetCatStr( 4, "This is a MUI-Application\n" ) );
-			strcat( About_String, "MUI is copyrighted by Stefan Stuntz" );
-		}
-		else
-		{
-			strcpy( About_String, "" );
-			strcat( About_String, "\33c\33uRO 1.28 Beta (19.06.18)\n\33n" );
-			strcat( About_String, "Copyright © 1994-2018 by Oliver Rummeyer\n\n" );
-			strcat( About_String, "\33b- Registered Release -\33n\n\n" );
-			strcat( About_String, "Registered to\n" );
-			strcat( About_String, global_Username );
-			strcat( About_String, "\n(SerialNr " );
-			strcat( About_String, global_Userserial );
-			strcat( About_String, ")\n\n");
-			strcat( About_String, GetCatStr( 4, "This is a MUI-Application\n" ) );
-			strcat( About_String, "MUI is copyrighted by Stefan Stuntz" );
-		}
-	}
-	else
-	{
-		strcpy( About_String, "" );
-		strcat( About_String, "\33c\33uRO 1.28 Beta (19.06.18)\n\33n" );
-		strcat( About_String, "Copyright © 1994-2018 by Oliver Rummeyer\n\n" );
-		strcat( About_String, "\33b- Free Edition -\33n\n\n" );
-		strcat( About_String, GetCatStr( 4, "This is a MUI-Application\n" ) );
-		strcat( About_String, "MUI is copyrighted by Stefan Stuntz" );
-	}
 	MUI_Request( app_RumorOpus, wi_Main, 0, GetCatStr( 3, "About RO" ), GetCatStr( 72, "_Okay" ), About_String, TAG_END );
 
 	return( TRUE );
