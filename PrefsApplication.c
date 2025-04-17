@@ -16,7 +16,7 @@ BOOL StartApplication ( void )
 		MUIA_Application_HelpFile, "RO.guide",
 		MUIA_Application_Title         , "ROPrefs",
 		MUIA_Application_Version       , VERSION,
-		MUIA_Application_Copyright     , "Copyright © 1994-1998 by Oliver Rummeyer",
+		MUIA_Application_Copyright     , "Copyright \xa9 1994-1998 by Oliver Rummeyer",
 		MUIA_Application_Author        , "Oliver Rummeyer",
 		MUIA_Application_Description   , "MUI-Based FileManager Prefs",
 		MUIA_Application_Base          , "ROPREFS",

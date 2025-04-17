@@ -252,7 +252,7 @@ BOOL StartApplication ( void )
 		MUIA_Application_HelpFile, "RO.guide",
 		MUIA_Application_Title         , "RO",
 		MUIA_Application_Version       , VERSION,
-		MUIA_Application_Copyright     , "Copyright � 1994-2018 by Oliver Rummeyer",
+		MUIA_Application_Copyright     , "Copyright \xa9 1994-2018 by Oliver Rummeyer",
 		MUIA_Application_Author        , "Oliver Rummeyer",
 		MUIA_Application_Description   , GetCatStr( 0, "MUI-Based FileManager" ),
 		MUIA_Application_Base          , "RO",
@@ -261,7 +261,7 @@ BOOL StartApplication ( void )
 
 		SubWindow,
 			wi_Main = WindowObject,
-			MUIA_Window_Title, "RO 1.28 Beta (19.06.18) -- Copyright � 1994-2018 by Oliver Rummeyer",
+			MUIA_Window_Title, "RO 1.28 Beta (19.06.18) -- Copyright \xa9 1994-2018 by Oliver Rummeyer",
 			MUIA_Window_ID, 1,
 			MUIA_Window_Menustrip, Menu = MUI_MakeObject(MUIO_MenustripNM,MenuData,0),
 			MUIA_Window_NeedsMouseObject, TRUE,

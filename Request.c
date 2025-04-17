@@ -118,8 +118,7 @@ BOOL AboutRequester ( void )
 
 	strcpy( About_String, "" );
 	strcat( About_String, "\33c\33uRO 1.28 Beta (19.06.18)\n\33n" );
-	strcat( About_String, "Copyright � 1994-2018 by Oliver Rummeyer\n\n" );
-	strcat( About_String, "\33b- Free Edition -\33n\n\n" );
+	strcat( About_String, "Copyright \xa9 1994-2018 by Oliver Rummeyer\n\n" );
 	strcat( About_String, GetCatStr( 4, "This is a MUI-Application\n" ) );
 	strcat( About_String, "MUI is copyrighted by Stefan Stuntz" );
 
