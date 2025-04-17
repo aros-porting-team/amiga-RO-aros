@@ -4,23 +4,6 @@
 **
 */
 
-HOOKPROTONH(AppMsgFunc, LONG, APTR obj, struct AppMessage **x );
-HOOKPROTONHNP(ButtonFunc, LONG, APTR obj );
-HOOKPROTONHNP(DriveFunc, LONG, APTR obj );
-HOOKPROTONHNO(ActionRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(ActivateRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(LoadRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(PathRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(RefreshRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(MessageRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(ChoiceRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(StringRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(NumEntriesRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(GetEntryRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(CommandRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(FunctionRexxFunc, LONG, ULONG *arg );
-HOOKPROTONHNO(ChangeRexxFunc, LONG, ULONG *arg );
-
 extern char * GetCatStr( int num, char *defstring );
 
 extern struct Catalog *global_Catalog;
@@ -113,19 +96,22 @@ struct NewMenu MenuData[] =
 	{ NM_END ,  NULL           , 0 ,0,0,(APTR)0             }
 };
 
-MakeStaticHook(ActionRexxHook, ActionRexxFunc);
-MakeStaticHook(ActivateRexxHook, ActivateRexxFunc);
-MakeStaticHook(LoadRexxHook, LoadRexxFunc);
-MakeStaticHook(PathRexxHook, PathRexxFunc);
-MakeStaticHook(RefreshRexxHook, RefreshRexxFunc);
-MakeStaticHook(MessageRexxHook, MessageRexxFunc);
-MakeStaticHook(ChoiceRexxHook, ChoiceRexxFunc);
-MakeStaticHook(StringRexxHook, StringRexxFunc);
-MakeStaticHook(NumEntriesRexxHook, NumEntriesRexxFunc);
-MakeStaticHook(GetEntryRexxHook, GetEntryRexxFunc);
-MakeStaticHook(CommandRexxHook, CommandRexxFunc);
-MakeStaticHook(FunctionRexxHook, FunctionRexxFunc);
-MakeStaticHook(ChangeRexxHook, ChangeRexxFunc);
+extern struct Hook ActionRexxHook;
+extern struct Hook ActivateRexxHook;
+extern struct Hook LoadRexxHook;
+extern struct Hook PathRexxHook;
+extern struct Hook RefreshRexxHook;
+extern struct Hook MessageRexxHook;
+extern struct Hook ChoiceRexxHook;
+extern struct Hook StringRexxHook;
+extern struct Hook NumEntriesRexxHook;
+extern struct Hook GetEntryRexxHook;
+extern struct Hook CommandRexxHook;
+extern struct Hook FunctionRexxHook;
+extern struct Hook ChangeRexxHook;
+extern struct Hook AppMsgHook;
+extern struct Hook DriveHook;
+extern struct Hook ButtonHook;
 
 static struct MUI_Command ARexxCommands[] =
 {

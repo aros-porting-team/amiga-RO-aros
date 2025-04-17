@@ -1,3 +1,8 @@
+#include <exec/types.h>
+#include <dos/bptr.h>
+#include <workbench/startup.h>
+#include <exec/libraries.h>
+
 #include "compatibility.h"
 
 #include <string.h>
@@ -28,5 +33,37 @@ int strmid(const char *source, char *dest, int pos, int len) {
 
     // Return 0 indicating success
     return 0;
+}
+#endif
+
+#ifndef HAVE_WBPATH
+BPTR cloneWorkbenchPath(struct Library *sysb, struct Library *dosb, struct WBStartup *sm)
+{
+	// FIXME
+	return (BPTR)NULL;
+}
+
+void freeWorkbenchPath(struct Library *sysb, struct Library *dosb, BPTR path)
+{
+	// FIXME
+}
+#endif
+
+#ifndef HAVE_PROCESS
+void process_starter(void)
+{
+	// FIXME
+}
+
+struct ProcMsg *start_process(long (*fp)(void), long prio, long stacksize)
+{
+	// FIXME
+	return NULL;
+}
+
+long wait_process(struct ProcMsg *msg)
+{
+	// FIXME
+	return 0;
 }
 #endif

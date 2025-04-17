@@ -133,6 +133,7 @@ HOOKPROTONH(AppMsgFunc, LONG, APTR obj, struct AppMessage **x)
 
 	return( 0 );
 }
+MakeHook(AppMsgHook, AppMsgFunc);
 
 /*
 **
@@ -155,6 +156,7 @@ HOOKPROTONHNP(ButtonFunc, LONG, APTR obj)
 
 	return( 0 );
 }
+MakeHook(ButtonHook, ButtonFunc);
 
 /*
 **
@@ -183,6 +185,7 @@ HOOKPROTONHNP(DriveFunc, LONG, APTR obj)
 
 	return( 0 );
 }
+MakeHook(DriveHook, DriveFunc);
 
 /*
 **
@@ -203,6 +206,7 @@ HOOKPROTONHNO(ActionRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(ActionRexxHook, ActionRexxFunc);
 
 /*
 **
@@ -239,6 +243,7 @@ HOOKPROTONHNO(ActivateRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(ActivateRexxHook, ActivateRexxFunc);
 
 /*
 **
@@ -268,6 +273,7 @@ HOOKPROTONHNO(LoadRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(LoadRexxHook, LoadRexxFunc);
 
 /*
 **
@@ -296,6 +302,7 @@ HOOKPROTONHNO(PathRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(PathRexxHook, PathRexxFunc);
 
 /*
 **
@@ -318,6 +325,7 @@ HOOKPROTONHNO(RefreshRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(RefreshRexxHook, RefreshRexxFunc);
 
 /*
 **
@@ -338,6 +346,7 @@ HOOKPROTONHNO(MessageRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(MessageRexxHook, MessageRexxFunc);
 
 /*
 **
@@ -365,6 +374,7 @@ HOOKPROTONHNO(ChoiceRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(ChoiceRexxHook, ChoiceRexxFunc);
 
 /*
 **
@@ -388,6 +398,7 @@ HOOKPROTONHNO(StringRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(StringRexxHook, StringRexxFunc);
 
 /*
 **
@@ -436,6 +447,7 @@ HOOKPROTONHNO(NumEntriesRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(NumEntriesRexxHook, NumEntriesRexxFunc);
 
 /*
 **
@@ -490,6 +502,7 @@ HOOKPROTONHNO(GetEntryRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(GetEntryRexxHook, GetEntryRexxFunc);
 
 /*
 **
@@ -521,6 +534,7 @@ HOOKPROTONHNO(CommandRexxFunc, LONG, IPTR *arg)
 	else
 		return( RETURN_OK );
 }
+MakeHook(CommandRexxHook, CommandRexxFunc);
 
 /*
 **
@@ -542,6 +556,7 @@ HOOKPROTONHNO(FunctionRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(FunctionRexxHook, FunctionRexxFunc);
 
 /*
 **
@@ -583,3 +598,4 @@ HOOKPROTONHNO(ChangeRexxFunc, LONG, IPTR *arg)
 
 	return( RETURN_OK );
 }
+MakeHook(ChangeRexxHook, ChangeRexxFunc);

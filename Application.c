@@ -621,10 +621,6 @@ void Methods ( void )
 {
 	int i;
 
-	MakeStaticHook(AppMsgHook, AppMsgFunc);
-	MakeStaticHook(ButtonHook, ButtonFunc);
-	MakeStaticHook(DriveHook, DriveFunc);
-
 	/*** Listview Notifications ***/
 
 	DoMethod( lv_Directory[Left_Side], MUIM_Notify, MUIA_Listview_DoubleClick, TRUE, app_RumorOpus, 2, MUIM_Application_ReturnID, ID_DoubleClick );
