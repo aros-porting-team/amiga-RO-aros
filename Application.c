@@ -245,7 +245,7 @@ BOOL StartApplication ( void )
 	Pages[1] = GetCatStr( 120, "Buffers" );
 	Pages[2] = GetCatStr( 5, "Volumes" );
 
-	CL_MyDirList = MUI_CreateCustomClass(NULL,MUIC_Dirlist ,NULL,sizeof(struct MyDirList_Data),MyDirList_Dispatcher);
+	CL_MyDirList = MUI_CreateCustomClass(NULL,MUIC_Dirlist ,NULL,sizeof(struct MyDirList_Data),ENTRY(MyDirList_Dispatcher));
 	if (!CL_MyDirList) return(FALSE);
 
 	app_RumorOpus = ApplicationObject,
