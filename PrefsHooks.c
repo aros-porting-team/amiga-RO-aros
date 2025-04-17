@@ -1,7 +1,8 @@
 #include "PrefsIncludes.h"
 #include "PrefsHooks.h"
 
-SAVEDS ASM LONG StrObjFunc(REG(a2) Object *pop,REG(a1) Object *str)
+/* SAVEDS ASM LONG StrObjFunc(REG(a2) Object *pop,REG(a1) Object *str) */
+HOOKPROTONH(StrObjFunc, LONG, Object *pop, Object *str)
 {
 	char *x,*s;
 	int i;
@@ -24,23 +25,29 @@ SAVEDS ASM LONG StrObjFunc(REG(a2) Object *pop,REG(a1) Object *str)
 	}
 	return(TRUE);
 }
+MakeHook(StrObjHook, StrObjFunc);
 
 
-SAVEDS ASM VOID ObjStrFunc(REG(a2) Object *pop,REG(a1) Object *str)
+/* SAVEDS ASM VOID ObjStrFunc(REG(a2) Object *pop,REG(a1) Object *str) */
+HOOKPROTONH(ObjStrFunc, VOID, Object *pop, Object *str)
 {
 	char *x;
 	DoMethod(pop,MUIM_List_GetEntry,MUIV_List_GetEntry_Active,&x);
 	set(str,MUIA_String_Contents,x);
 	set(str,MUIA_String_Acknowledge,TRUE);
 }
+MakeHook(ObjStrHook, ObjStrFunc);
 
 
-SAVEDS ASM VOID WindowFunc(REG(a2) Object *pop,REG(a1) Object *win)
+/* SAVEDS ASM VOID WindowFunc(REG(a2) Object *pop,REG(a1) Object *win) */
+HOOKPROTONH(WindowFunc, VOID, Object *pop, Object *win)
 {
 	set(win,MUIA_Window_DefaultObject,pop);
 }
+MakeHook(WindowHook, WindowFunc);
 
-SAVEDS ASM VOID ObjStrFunc2(REG(a2) Object *pop,REG(a1) Object *str)
+/* SAVEDS ASM VOID ObjStrFunc2(REG(a2) Object *pop,REG(a1) Object *str) */
+HOOKPROTONH(ObjStrFunc2, VOID, Object *pop, Object *str)
 {
 	char *a,*b,c[7];
 	DoMethod(pop,MUIM_List_GetEntry,MUIV_List_GetEntry_Active,&a);
@@ -50,8 +57,10 @@ SAVEDS ASM VOID ObjStrFunc2(REG(a2) Object *pop,REG(a1) Object *str)
 	set(str,MUIA_String_Contents,c);
 	set(str,MUIA_String_Acknowledge,TRUE);
 }
+MakeHook(ObjStrHook2, ObjStrFunc2);
 
-SAVEDS ASM VOID ObjStrFunc3(REG(a2) Object *pop,REG(a1) Object *str)
+/* SAVEDS ASM VOID ObjStrFunc3(REG(a2) Object *pop,REG(a1) Object *str) */
+HOOKPROTONH(ObjStrFunc3, VOID, Object *pop, Object *str)
 {
 	char *a,*b,c[81];
 	DoMethod(pop,MUIM_List_GetEntry,MUIV_List_GetEntry_Active,&a);
@@ -62,3 +71,4 @@ SAVEDS ASM VOID ObjStrFunc3(REG(a2) Object *pop,REG(a1) Object *str)
 	set(str,MUIA_String_Contents,c);
 	set(str,MUIA_String_Acknowledge,TRUE);
 }
+MakeHook(ObjStrHook3, ObjStrFunc3);

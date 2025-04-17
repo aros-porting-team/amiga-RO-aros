@@ -235,14 +235,8 @@ static const char *PopFormat[] =
 	NULL
 };
 
-extern SAVEDS ASM LONG StrObjFunc(REG(a2) Object *pop,REG(a1) Object *str);
-extern SAVEDS ASM VOID ObjStrFunc(REG(a2) Object *pop,REG(a1) Object *str);
-extern SAVEDS ASM VOID WindowFunc(REG(a2) Object *pop,REG(a1) Object *win);
-extern SAVEDS ASM VOID ObjStrFunc2(REG(a2) Object *pop,REG(a1) Object *str);
-extern SAVEDS ASM VOID ObjStrFunc3(REG(a2) Object *pop,REG(a1) Object *str);
-
-static const struct Hook StrObjHook = { { NULL,NULL },(VOID *)StrObjFunc,NULL,NULL };
-static const struct Hook ObjStrHook = { { NULL,NULL },(VOID *)ObjStrFunc,NULL,NULL };
-static const struct Hook WindowHook = { { NULL,NULL },(VOID *)WindowFunc,NULL,NULL };
-static const struct Hook ObjStrHook2 = { { NULL,NULL },(VOID *)ObjStrFunc2,NULL,NULL };
-static const struct Hook ObjStrHook3 = { { NULL,NULL },(VOID *)ObjStrFunc3,NULL,NULL };
+extern struct Hook StrObjHook;
+extern struct Hook ObjStrHook;
+extern struct Hook ObjStrHook2;
+extern struct Hook ObjStrHook3;
+extern struct Hook WindowHook;

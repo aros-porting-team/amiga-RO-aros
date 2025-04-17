@@ -4,11 +4,15 @@
 **
 */
 
+#define MUI_OBSOLETE
+
 #include <libraries/mui.h>
 #ifdef HAVE_XPK
 #include <libraries/xpk.h>
 #endif
+#ifndef __AROS__
 #include <dos.h>
+#endif
 #include <dos/dos.h>
 #include <dos/dostags.h>
 #include <graphics/gfxmacros.h>
@@ -34,6 +38,8 @@
 
 #include "WBPath.h"
 
+#include <SDI/SDI_hook.h>
+
 extern struct ExecBase * SysBase;
 extern struct Library * LocaleBase;
 extern struct Library * IntuitionBase;
@@ -46,9 +52,15 @@ extern struct Library * XpkBase;
 #endif
 extern struct Library * MUIMasterBase;
 
+#ifdef __AROS__
+#define ASM
+#define SAVEDS
+#define __far
+#else
 #define ASM    __asm
 #define SAVEDS __saveds
 #define REG(x) register __ ## x
+#endif
 
 enum Ids
 {
