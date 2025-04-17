@@ -326,7 +326,7 @@ BOOL LoadConfig( char * filename )
 
 char * GetSwitch( APTR obj )
 {
-	LONG State;
+	IPTR State;
 
 	get( obj, MUIA_Selected, &State );
 
@@ -346,7 +346,8 @@ BOOL SaveConfig( char * filename )
 {
 	FILE *file;	
 	char string[512], * TypeName, * str;
-	int i, dummy, num;
+	int i, num;
+	IPTR dummy;
 
 	file = fopen( filename, "wb" );
 	if ( file )

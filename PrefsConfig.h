@@ -17,7 +17,7 @@ LONG cfg_SortType[2];
 LONG cfg_LeftPage;
 LONG cfg_RightPage;
 LONG cfg_MiddleMouse;
-LONG CurrentType;
+IPTR CurrentType;
 
 BOOL cfg_CheckFit;
 BOOL cfg_CopyDate;

@@ -37,6 +37,7 @@
 #include <fcntl.h>
 
 #include "WBPath.h"
+#include "compatibility.h"
 
 #include <SDI/SDI_hook.h>
 

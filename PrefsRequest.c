@@ -14,7 +14,6 @@ BOOL AboutRequester ( void )
 	strcpy( About_String, "" );
 	strcat( About_String, "\33c\33uRO Prefs 0.86 (5.12.98)\n\33n" );
 	strcat( About_String, "Copyright � 1994-1998 by Oliver Rummeyer\n\n" );
-	strcat( About_String, "\33b- Special Edition for amigaOS CD Vol.1 -\33n\n\n" );
 	strcat( About_String, "This is a MUI-Application\n" );
 	strcat( About_String, "MUI is copyrighted by Stefan Stuntz" );
 

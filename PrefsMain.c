@@ -11,7 +11,8 @@
 
 int main ( int argc, char *argv[] )
 {
-	ULONG signal, id, active, Bactive, dummy, i;
+	ULONG signal, id; 
+	IPTR active, dummy, i, Bactive;
 	BPTR dirlock;
 	char filename[256];
 	struct FileRequester * req;
@@ -21,7 +22,6 @@ int main ( int argc, char *argv[] )
 
 	set( wi_Main, MUIA_Window_Open, TRUE );
 
-	AboutRequester();
 	set( bt_Save, MUIA_Disabled, TRUE );
 	DoMethod( wi_Main, MUIM_Window_SetMenuState, ID_MenuSaveAs, FALSE );
 
